@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Top from './assets/images/bg-header-desktop.svg'
+import './assets/styles/App.sass'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    return(
+      <div className="container">
+        <div className="container__top">
+          <img src={Top} alt="Header image"/>
+        </div>
+        <div className="container__content">
+          demo
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
