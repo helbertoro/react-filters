@@ -1,6 +1,8 @@
 import React from 'react'
 import Top from './assets/images/bg-header-desktop.svg'
+import Card from './components/Card'
 import './assets/styles/App.sass'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +16,7 @@ class App extends React.Component {
           <img src={Top} alt="Header image"/>
         </div>
         <div className="container__content">
-          demo
+          <Card />
         </div>
       </div>
     )
