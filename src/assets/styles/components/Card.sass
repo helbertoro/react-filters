@@ -1,35 +1,49 @@
 @import '../Vars.sass'
 
 .card
-  display: block
+  display: flex
+  justify-content: center
+  align-items: center
   width: 100%
   padding: 25px
+  margin: 25px 0
   border-radius: 5px
   background-color: white
   box-shadow: 5px 5px 15px $dark-cyan
 
-  &__company
-    display: inline-block
-    color: $dark-cyan
-    font-size: .7rem
-
-  &__profesion
-    color: $dark-cyan
-    font-weight: 700
-    margin: 0
-
+  &__logo
+    width: 10%
+  
   &__info
-    color: $dark-grayish-cyan
-    font-size: .7rem
-    margin: 0
-    padding: 0
+    width: 40%
 
-    li
-      list-style-type: none
+    &--company
       display: inline-block
+      color: $dark-cyan
+      font-size: .7rem
+      margin: 0
+
+    &--profesion
+      color: $very-dark-grayish-cyan
+      font-weight: 700
+      margin: 10px 0
+
+    &--details
+      color: $dark-grayish-cyan
+      font-size: .7rem
+      margin: 0
       padding: 0
-      &::after
-        content: "•"
-        padding: 0 10px
-      &:last-child::after
-        content: ""
+
+      li
+        list-style-type: none
+        display: inline-block
+        padding: 0
+        &::after
+          content: "•"
+          padding: 0 10px
+        &:last-child::after
+          content: ""
+
+  &__skills
+    width: 50%
+    text-align: right
