@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState} from 'react';
 import Label from './Label';
 import { connect } from 'react-redux';
 import { filterSkill } from '../actions';
@@ -6,9 +6,12 @@ import '../assets/styles/components/Card.sass';
 
 const Card = (props) => {
   const { item } = props;
+  const [filter, setFilter] = useState(["Python"]);
 
   const handleFilterSkill = () => {
-    props.filterSkill(["Python", "HTML"])
+    setFilter(filter.push("CSS"));
+    props.filterSkill(filter);
+    console.log(filter);
   }
 
   return(
