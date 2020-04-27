@@ -1,11 +1,16 @@
 import React from 'react';
 import Label from './Label';
-import Language from './Language';
+import { connect } from 'react-redux';
+import { filterSkill } from '../actions';
 import '../assets/styles/components/Card.sass';
 
 const Card = (props) => {
-  const item = props.data;
-  console.log(item);
+  const { item } = props;
+
+  const handleFilterSkill = () => {
+    props.filterSkill(["Python", "HTML"])
+  }
+
   return(
     <div className="card">
       <div className="card__logo">
@@ -24,11 +29,15 @@ const Card = (props) => {
       </div>
       <div className="card__skills">
         {item.languages &&
-          item.languages.map((item) => <Language language={item} />)
+          item.languages.map((item) => <span onClick={handleFilterSkill} className="label__language">{item}</span>)
         }
       </div>
     </div>
   )
 };
 
-export default Card;
+const mapDispatchToProps = {
+  filterSkill
+}
+
+export default connect(null, mapDispatchToProps)(Card);
