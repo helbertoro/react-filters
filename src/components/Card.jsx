@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import Label from './Label';
 import { connect } from 'react-redux';
 import { filterSkill } from '../actions';
@@ -6,14 +6,18 @@ import '../assets/styles/components/Card.sass';
 
 const Card = (props) => {
   const { item } = props;
-  const [filter, setFilter] = useState(["Python"]);
+  const [filter, setFilter] = useState([]);
 
-  const handleFilterSkill = () => {
-    setFilter(filter.push("CSS"));
-    props.filterSkill(filter);
-    console.log(filter);
+  const handleFilterSkill = (item) => {
+    setFilter(filter => [...filter, item]);
   }
 
+  useEffect(() => {
+    if(filter.length > 0) {
+      props.filterSkill(filter);
+    }
+  })
+  console.log(filter);
   return(
     <div className="card">
       <div className="card__logo">
@@ -32,7 +36,7 @@ const Card = (props) => {
       </div>
       <div className="card__skills">
         {item.languages &&
-          item.languages.map((item) => <span onClick={handleFilterSkill} className="label__language">{item}</span>)
+          item.languages.map((item) => <span onClick={() => handleFilterSkill(item)} className="label__language">{item}</span>)
         }
       </div>
     </div>

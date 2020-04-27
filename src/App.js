@@ -5,7 +5,6 @@ import Card from './components/Card';
 import './assets/styles/App.sass';
 
 const App = ({ positions }) => {
-  console.log(positions);
   return(
     <div className="container">
       <div className="container__top">
